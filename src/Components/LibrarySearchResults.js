@@ -16,7 +16,7 @@ export default class LibrarySearchResults extends Component{
 
   leaveReviewBook = () => {
     console.log('this will pop up the review modal');
-    this.props.showReviewModal();
+    this.props.showReviewModal(this.props.book);
   }
 
 
@@ -29,7 +29,7 @@ export default class LibrarySearchResults extends Component{
         <Card.Text>{this.props.book.author}</Card.Text>
         <Card.Text>{this.props.book.description}</Card.Text>
         <Button onClick = {this.deleteBook}>Borrow Book</Button>
-        <Button onClick = {this.leaveReviewBook}>Borrow Book</Button>
+        <Button onClick = {this.leaveReviewBook}>Review Book</Button>
       </Card>
 
     )

@@ -9,8 +9,10 @@ class LibraryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [],
+      books: [{libraryCharter:'59905', title:'Dr.No', author:'Ian Fleming', description:'life finally slows down for james bond', thumbnail: 'https://placekitten.com/200/300'}],
       showReviewModal: false,
+      searchedCharter:'',
+      reviewModalBook:{}
     };
   }
 
@@ -26,12 +28,15 @@ class LibraryPage extends Component {
   }
 
   handleOnSubmit = (e) => {
-    e.prevenDefault();
-    this.getBooks(e.target.value);
+    e.preventDefault();
+    console.log(e.target.CharterNum.value);
+    // this.getBooks(e.target.CharterNum.value);
+    // this.setState({searchedCharter:e.target.CharterNum.value})
     console.log('you are trying to submit a library search');
   }
 
-  showReviewModal = () =>{
+  showReviewModal = (book) =>{
+    this.setState({reviewModalBook:book})
     this.setState({showReviewModal:true});
   }
 
@@ -52,19 +57,18 @@ class LibraryPage extends Component {
     }
   }
 
-
   render() {
     return (
       <section>
-        <Form>
+        <Form onSubmit={this.handleOnSubmit}>
           <Form.Group className="LibrarySearch" controlId="CharterNum">
             <Form.Label>Charter Number</Form.Label>
-            <Form.Control type="number" placeholder="Charter Number" />
+            <Form.Control type="text" placeholder="Charter Number" />
           </Form.Group>
-          <Button onSubmit={this.handleOnSubmit}> Search </Button>
+          <Button type="submit"> Search </Button>
         </Form>
         {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults deleteBook = {this.deleteBook} showReviewModal = {this.showReviewModal} book = {book} /> ): false}
-        <ReviewModal closeReviewModal = {this.closeReviewModal} />
+        {this.state.reviewModalBook ? <ReviewModal showReviewModal = {this.state.showReviewModal} getBooks ={this.getBooks} reviewModalBook = {this.state.reviewModalBook} closeReviewModal = {this.closeReviewModal}/> : false} 
       </section>
     )
   }

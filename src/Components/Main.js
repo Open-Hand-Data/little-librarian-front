@@ -3,7 +3,7 @@ import { BrowserRouter as Switch, Route } from 'react-router-dom';
 
 import Landing from './Landing';
 import LibraryPage from './LibraryPage';
-import BookPage from './BookPage';
+import BookPage from './SearchByBook/BookPage';
 import AboutUs from './AboutUs';
 
 export default class Main extends Component {

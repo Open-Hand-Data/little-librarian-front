@@ -4,31 +4,20 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 export default class LibrarySearchResults extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchTerm: ''
-    }
-  }
-
 
   render() {
     return (
       <Container>
-        {this.props.bookSearch.map((bookData, idx) => {
+        <h2>We found your book in these libraries!</h2>
+        {this.props.libraryArr.map((data, idx) => {
           return (
             <Card style={{ width: '18rem' }} key={idx}>
-              <Card.Title></Card.Title>
+              <Card.Title>library Name: {data.libraryName}</Card.Title>
               <Card.Body>
-                <Card.Text>Title: {bookData.title}</Card.Text>
-
+                <Card.Text>Charter number: {data.charter}</Card.Text>
+                <Card.Text>Latitude: {data.geolocation.latitude}</Card.Text>
+                <Card.Text>Longitude: {data.geolocation.longitude}</Card.Text>
               </Card.Body>
-              <Button
-                variant="danger"
-                onClick={() => this.handleDelete(this.props.bookData._id)}
-              >
-                Take this book?
-              </Button>
             </Card>
           )
         })};

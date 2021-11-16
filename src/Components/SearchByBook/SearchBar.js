@@ -4,27 +4,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-import BookSearchResults from './BookSearchResults';
-
-export default class BookPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchQuery: '',
-      bookSearch: []
-    };
-  }
-
-  handleClick = (e) => {
-    e.prevenDefault();
-    this.setState({ searchQuery: e.target.value })
-    console.log('you are trying to submit a book search');
-  }
-
+export default class SearchBar extends Component {
   render() {
     return (
-      <>
-        <Form>
+      <Form>
           <Row className='justify-content-md-center'>
             <Col sm={3} className='my-1'>
               <Form.Label htmlFor='inlineFormInputName' visuallyHidden>
@@ -40,8 +23,6 @@ export default class BookPage extends Component {
             </Col>
           </Row>
         </Form>
-        {this.state.bookSearch ? <BookSearchResults /> : false}
-      </>
     )
   }
 }
