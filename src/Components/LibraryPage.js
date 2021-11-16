@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { withAuth0 } from "@auth0/auth0-react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import LibrarySearchResults from "./LibrarySearchResults";

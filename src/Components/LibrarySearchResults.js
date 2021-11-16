@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
 
 export default class LibrarySearchResults extends Component{
   constructor(props){
