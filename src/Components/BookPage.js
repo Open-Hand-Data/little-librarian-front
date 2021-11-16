@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-import BookSearchResults from './Components/BookSearchResults';
+import BookSearchResults from './BookSearchResults';
 
 export default class BookPage extends Component {
   constructor(props) {

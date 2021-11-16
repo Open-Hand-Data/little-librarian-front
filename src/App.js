@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Main from './Components/Main';
@@ -11,9 +12,11 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Main />
-        <Footer />
+        <Router>
+          <Header />
+          <Main />
+          <Footer />
+        </Router>
       </div>
     )
   }

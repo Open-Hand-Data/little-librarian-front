@@ -11,12 +11,12 @@ class LibraryPage extends Component {
     super(props);
     this.state = {
       books: [],
-      showReviewModal: false
+      showReviewModal: false,
     };
   }
 
-  getBooks = async () => {
-    let url = `${process.env.REACT_APP_SERVER_URL}/books/catalog?charter={}`;
+  getBooks = async (charter) => {
+    let url = `${process.env.REACT_APP_SERVER_URL}/books/catalog?charter=${charter}`;
     try {
       const response = await axios.get(url);
       console.log('inside try of getBooks');
@@ -28,7 +28,7 @@ class LibraryPage extends Component {
 
   handleOnSubmit = (e) => {
     e.prevenDefault();
-    this.setState({ searchQuery: e.target.value })
+    this.getBooks(e.target.value);
     console.log('you are trying to submit a library search');
   }
 
