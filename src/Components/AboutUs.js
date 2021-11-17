@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import bios from '.../public/aboutUs.json';
+import bios from './aboutUs.json';
 import BioCard from './BioCard'
 
 export default class AboutUs extends Component {
@@ -9,7 +9,7 @@ export default class AboutUs extends Component {
     const data = bios.data;
     return (
       <>
-        <h1>The gods of this plane!</h1>
+        <h1>The Gods of this plane!</h1>
         <Container fluid
           style={{
             display: 'flex',
