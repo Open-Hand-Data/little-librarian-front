@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "name": "Steve Ngo",
+      "bio": "I'm Steve and I'm a software engineer, based in Atlanta Ga. I'm a former branding designer and camera specialist. I enjoy the feeling of fixing tough bugs in my code. The goals I have for myself include learning how to code more advanced programs while creating an appealing UX/UI. I enjoy working with my hands to fixing broken things like antique music boxes. Fun fact: my favorite book is Alice in Wonderland",
+      "img": "../imgs/steve.jpeg",
+      "linkedin": "https://www.linkedin.com/in/alsosteve/",
+      "github": "https://github.com/alsosteve"
+    },
+    {
+      "name": "Joe Streifel",
+      "bio": "bla bla bla blab bla blab blab blablab blablalala",
+      "img": "../imgs/steve.jpeg",
+      "linkedin": "https://www.linkedin.com/in/josephjstreifel/",
+      "github": "https://github.com/jstreifel-33"
+    },
+    {
+      "name": "Samuel Panek",
+      "bio": "bla bla bla blab bla blab blab blablab blablalala",
+      "img": "../imgs/steve.jpeg",
+      "linkedin": "https://www.linkedin.com/in/samuel-panek/",
+      "github": "https://github.com/spamuelranek"
+    },
+    {
+      "name": "Joseph 'Joey' Hernandez",
+      "bio": "Hello there, my name is Joey, I go by Joey, so you can call me Joey. I am a budding software development engineer based in Seattle, WA. I am a professional brewer by trade and am making a shift to something more challenging. I am also a father to four kids, husband to one wife, and I like long walks in the woods. I really enjoy fixing problems in my code, and my goal is to become a great coder someday. In my spare time I like taking things apart, building computers, and tattoos, I love tattoos.",
+      "img": "../imgs/me.jpeg",
+      "linkedin": "https://www.linkedin.com/in/jmhernandez2six/",
+      "github": "https://github.com/JosephHernandez26"
+    }
+  ]
+}

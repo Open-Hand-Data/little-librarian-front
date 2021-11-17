@@ -1,3 +1,16 @@
+body {
+  background-color: #282c34;
+  color: #b8b8b8
+}
+
+#footerHeading {
+  color: #b8b8b8
+}
+
+#copyright {
+  color: #FF6400
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +27,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #FF6400;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
