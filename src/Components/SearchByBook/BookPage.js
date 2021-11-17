@@ -27,9 +27,10 @@ export default class BookPage extends Component {
   }
 
   getLibraries = async () => {
-    const url = `${process.env.REACT_APP_SERVER_URL}/library?title=${this.state.searchQuery}`;
+    const url = `${process.env.REACT_APP_SERVER_URL}/libraries?title=${this.state.searchQuery}`;
     try {
       const searchResponse = await axios.get(url);
+      console.log(searchResponse);
       const libraries = searchResponse.data;
 
       this.setState({

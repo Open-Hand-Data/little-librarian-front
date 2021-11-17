@@ -10,7 +10,7 @@ class LibraryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [{_id:'125648', libraryCharter:'59905', title:'Dr.No', author:'Ian Fleming', description:'life finally slows down for james bond', thumbnail: 'https://placekitten.com/200/300'}],
+      books: [],
       showReviewModal: false,
       searchedCharter:'',
       reviewModalBook:{}
@@ -70,7 +70,7 @@ class LibraryPage extends Component {
     console.log(url);
     try {
       let updatedBook = await axios.put(url, book)
-          this.props.getBooks();
+          this.getBooks(this.state.searchedCharter);
       console.log(updatedBook);
     }
        catch(e) {
@@ -86,7 +86,7 @@ class LibraryPage extends Component {
       await axios.delete(url);
       let modifiedBooks = this.state.books.filter(book => book._id !== id);
       this.setState({ books: modifiedBooks });
-      this.getBooks();
+      this.getBooks(this.state.searchedCharter);
     } catch (error) {
       console.log(error);
     }

@@ -20,7 +20,7 @@ export default class LibrarySearchResults extends Component {
               </Card.Body>
             </Card>
           )
-        })};
+        })}
       </Container>
     )
   }
