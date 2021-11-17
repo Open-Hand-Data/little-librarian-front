@@ -16,7 +16,7 @@ export default class BookPage extends Component {
   }
 
   handleChange = (e) => {
-    let titleSearch = e.target.value.replaceAll(' ', '+');
+    let titleSearch = e.target.value.replace(/\s+/g, '+');
 
     this.setState({ searchQuery: titleSearch })
   }
@@ -27,7 +27,7 @@ export default class BookPage extends Component {
   }
 
   getLibraries = async () => {
-    const url = `${process.env.REACT_APP_SERVER_URL}/`;
+    const url = `${process.env.REACT_APP_SERVER_URL}/library?title=${this.state.searchQuery}`;
     try {
       const searchResponse = await axios.get(url);
       const libraries = searchResponse.data;

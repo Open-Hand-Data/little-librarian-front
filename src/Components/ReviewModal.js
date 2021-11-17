@@ -2,7 +2,7 @@ import { Component } from "react";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
-import axios from "axios";
+
 
 class ReviewModal extends Component {
 
@@ -10,25 +10,10 @@ class ReviewModal extends Component {
     this.props.closeReviewModal();
   }
 
-  updateBook = async(review) => {
-    let book = this.props.reviewModalBook;
-    book.review = review;
-    let url = `${process.env.REACT_APP_SERVER_URL}/books/add/${book._id}`;
-    console.log(url);
-    try {
-      let updatedBook = await axios.put(url, book)
-          this.props.getBooks();
-      console.log(updatedBook);
-    }
-       catch(e) {
-      console.log(e);
-    }
-  }
-
   handleSubmit = (e) => {
     e.preventDefault();
     let review = e.target.reviewText.value;
-    this.updateBook(review);
+    this.props.updateBook(review);
     this.props.closeReviewModal();
   }
 
