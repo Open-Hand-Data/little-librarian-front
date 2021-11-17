@@ -10,26 +10,29 @@ export default class LibrarySearchResults extends Component{
     }
   }
 
+  // the passed down funciton to delete by id
   deleteBook = async () => {
     this.props.deleteBook(this.props.book._id);
   }
 
+  // the passed down funtion to bring up the review modal on the parent component
   leaveReviewBook = () => {
     console.log('this will pop up the review modal');
-    this.props.showReviewModal();
+    this.props.showReviewModal(this.props.book);
   }
+
 
 
 
   render(){
     return (
-      <Card style={{width: '18rem'}}>
-        <Card.Img variant="top" src={this.props.book.thumbnail} />
+      <Card key={this.props.book._id} style={{width: '18rem'}}>
+        {this.props.book.thumbnail ? <Card.Img variant="top" src={this.props.book.thumbnail} /> : false }
         <Card.Title>{this.props.book.title}</Card.Title>
-        <Card.Text>{this.props.book.author}</Card.Text>
+        <Card.Text>{this.props.book.authors}</Card.Text>
         <Card.Text>{this.props.book.description}</Card.Text>
         <Button onClick = {this.deleteBook}>Borrow Book</Button>
-        <Button onClick = {this.leaveReviewBook}>Borrow Book</Button>
+        <Button onClick = {this.leaveReviewBook}>Review Book</Button>
       </Card>
 
     )

@@ -27,7 +27,7 @@ class Header extends Component{
               <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
               <NavItem><Link to="/book" className="nav-link">Search By Book</Link></NavItem>
               <NavItem><Link to="/library" className="nav-link">Search By Library</Link></NavItem>
-              <Button onClick={this.handleLogOutClick}>Log In</Button>
+              <Button onClick={this.handleLogOutClick}>Log Out</Button>
               {/* {this.props.auth0.isAuthenticated ? <Button onClick={this.handleLogOutClick}>Log In</Button> : false} */}
           </Container>
         </Navbar>
