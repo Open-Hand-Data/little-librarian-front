@@ -6,15 +6,6 @@
   background: linear-gradient(191deg, rgba(2,0,36,1) 0%, rgba(82,107,122,1) 35%, rgba(233,241,242,1) 100%);
 }
 
-.modalCard{
-  text-align: center;
-  width: 18rem;
-  margin: auto;
-  margin-top: 1rem;
-  background: rgb(2,0,36);
-  background: linear-gradient(191deg, rgba(2,0,36,1) 0%, rgba(82,107,122,1) 35%, rgba(233,241,242,1) 100%);
-}
-
 .cardImg{
   padding: 0.2em;
   margin:auto;

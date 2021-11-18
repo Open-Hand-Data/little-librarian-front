@@ -1,30 +1,9 @@
 body {
   background-color: black;
-  color: dimgray;
-}
-
-#titleContainer {
-  background-color: #FF6400;
-  border-radius: 10%;
-
-}
-
-#title {
-  font-family: 'Permanent Marker', cursive;
-  color: black;
-}
-
-a.nav-link{
-  font-family: 'Permanent Marker', cursive;
-  font-size: larger;
-
-}
-
-a.librarySearch {
-  color: #FF6400;
-  font-family: 'Permanent Marker', cursive;
-
-
+  color: rgb(255, 255, 255);
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
 
 .App {

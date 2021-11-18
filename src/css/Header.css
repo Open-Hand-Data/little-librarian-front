@@ -1,0 +1,30 @@
+
+
+header {
+  background: linear-gradient(#FF6400 33%, black 33%, black 66%);
+}
+
+#titleContainer {
+  background-color: #011DF5;
+  max-width: 90%;
+
+}
+
+#title {
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+}
+
+a.nav-link{
+  font-family: 'Permanent Marker', cursive;
+  font-size: larger;
+  color: white;
+
+}
+
+a.librarySearch {
+  color: #FF6400;
+  font-family: 'Permanent Marker', cursive;
+
+
+}

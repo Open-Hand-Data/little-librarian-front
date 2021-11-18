@@ -7,6 +7,7 @@ import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import {withAuth0} from '@auth0/auth0-react'
 
+import '../css/Header.css';
 
 class Header extends Component{
 
