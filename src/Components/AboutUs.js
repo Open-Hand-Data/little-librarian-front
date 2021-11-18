@@ -17,7 +17,7 @@ export default class AboutUs extends Component {
             alignItems: 'center',
           }}
         >
-          <Row xs={1} sm={2} md={3} lg={4}>
+          <Row xs={1} sm={2} md={4} lg={4}>
             {data.map((person, index) => (
               <BioCard key={index}
                 img={person.img}

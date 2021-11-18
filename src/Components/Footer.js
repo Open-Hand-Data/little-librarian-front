@@ -6,8 +6,7 @@ class Footer extends Component {
   render(){
     return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" id="Footer">
-        <Navbar.Brand>Little Librarian</Navbar.Brand>
-        <Navbar.Brand>© by OpenHand Data</Navbar.Brand>
+        <Navbar.Brand id="foot">Little Librarian © by OpenHand Data </Navbar.Brand>
       </Navbar>
     )
   }
