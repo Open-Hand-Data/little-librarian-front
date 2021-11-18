@@ -3,6 +3,10 @@ body {
   color: #b8b8b8
 }
 
+#title {
+  background-color: #FF6400;
+  color: #b8b8b8;
+}
 
 .App {
   text-align: center;

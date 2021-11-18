@@ -16,7 +16,9 @@ export default class PostModal extends React.Component {
 
   closeModal = () => {
     this.setState({showmodalstate:false});
+    this.props.clearBooksModal();
   }
+
 
   render() {
     return (
@@ -33,7 +35,7 @@ export default class PostModal extends React.Component {
           </Modal.Header>
 
           <Modal.Body>
-            <PostForm libraryCharter={this.props.libraryCharter} handlePostBook={this.props.handlePostBook} hideModal={this.closeModal} />
+            <PostForm booksModal = {this.props.booksModal} searchAPIBook ={this.props.searchAPIBook} libraryCharter={this.props.libraryCharter} handlePostBook={this.props.handlePostBook} hideModal={this.closeModal} />
           </Modal.Body>
 
           <Modal.Footer>

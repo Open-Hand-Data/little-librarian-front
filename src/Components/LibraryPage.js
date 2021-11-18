@@ -5,30 +5,19 @@ import LibrarySearchResults from "./LibrarySearchResults";
 import ReviewModal from "./ReviewModal"
 import axios from "axios";
 import PostModal from "./PostModal";
-import {withAuth0} from "@auth0/auth0-react";
+import { withAuth0 } from "@auth0/auth0-react";
+import { Row } from "react-bootstrap"
 
 class LibraryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       books: [],
+      booksModal: [],
       showReviewModal: false,
       searchedCharter: '',
       reviewModalBook: {}
     };
-  }
-
-  getConfig = async () => {
-    if (this.props.auth0.isAuthenticated) {
-      const res = await this.props.auth0.getIdTokenClaims();
-      const jwt = res.__raw;
-      console.log(res);
-      console.log(jwt);
-      const config = {
-        headers: { "Authoriztion": `Bearer ${jwt}`}
-      }
-      return config;
-    }
   }
 
   //will capture the input from the form
@@ -56,8 +45,8 @@ class LibraryPage extends Component {
   handlePostBook = async (bookInfo) => {
     bookInfo.libraryCharter = this.state.searchedCharter;
     let url = `${process.env.REACT_APP_SERVER_URL}/books/add/${this.state.searchedCharter}`
-    let config = this.getConfig();
-    try{
+    let config = await this.props.getConfig();
+    try {
       var newBookInfo = await axios.post(url, bookInfo, config);
       var bookData = newBookInfo.data;
       console.log(bookData);
@@ -69,10 +58,11 @@ class LibraryPage extends Component {
 
   //reads books from the book DB using a passed in charter number
   getBooks = async (charter) => {
+    let config = await this.props.getConfig();
     let url = `${process.env.REACT_APP_SERVER_URL}/books/catalogue?charter=${charter}`;
-    let config = this.getConfig();
+    console.log(config);
     try {
-      const response = await axios.get(url,config);
+      const response = await axios.get(url, config);
       console.log('inside try of getBooks', response.data);
 
       this.setState({ books: response.data });
@@ -86,7 +76,7 @@ class LibraryPage extends Component {
     let book = this.state.reviewModalBook;
     book.review = review;
     let url = `${process.env.REACT_APP_SERVER_URL}/books/review/${book._id}`;
-    let config = this.getConfig();
+    let config = await this.props.getConfig();
     console.log(url);
     try {
       let updatedBook = await axios.put(url, book, config)
@@ -101,10 +91,10 @@ class LibraryPage extends Component {
   // deletes a book from book DB
   deleteBook = async (id) => {
     const url = `${process.env.REACT_APP_SERVER_URL}/books/remove/${id}`;
-    let config = this.getConfig();
+    let config = await this.props.getConfig();
     console.log(url);
     try {
-      await axios.delete(url,config);
+      await axios.delete(url, config);
       let modifiedBooks = this.state.books.filter(book => book._id !== id);
       this.setState({ books: modifiedBooks });
       this.getBooks(this.state.searchedCharter);
@@ -113,9 +103,29 @@ class LibraryPage extends Component {
     }
   }
 
+  //This will make a request from the google book API for a selection of books
+  //It will then store that selection in to the books state
+  searchAPIBook = async (searchTitle) => {
+
+    let modsearchTitle = searchTitle.replace(/\s+/g, '+');
+    let config = await this.props.getConfig();
+    let url = `${process.env.REACT_APP_SERVER_URL}/books/search?title=${modsearchTitle}`;
+    try {
+      const response = await axios.get(url, config);
+      console.log('inside try of addBooks');
+      this.setState({ booksModal: response.data });
+    } catch (e) {
+      console.error(e.response);
+    }
+  }
+
+  clearBooksModal = () => {
+    this.setState({ booksModal: '' })
+  }
+
   render() {
     return (
-      <section>
+      <section id="librarySection">
         <Form onSubmit={this.handleOnSubmit}>
           <Form.Group className="LibrarySearch" controlId="CharterNum">
             <Form.Label>Charter Number</Form.Label>
@@ -123,11 +133,12 @@ class LibraryPage extends Component {
           </Form.Group>
           <Button type="submit"> Search </Button>
         </Form>
-        {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults key={book._id} deleteBook={this.deleteBook} showReviewModal={this.showReviewModal} book={book} />) : false}
-
+        <Row>
+          {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults key={book._id} deleteBook={this.deleteBook} showReviewModal={this.showReviewModal} book={book} />) : false}
+        </Row>
         {this.state.reviewModalBook ? <ReviewModal showReviewModal={this.state.showReviewModal} getBooks={this.getBooks} updateBook={this.updateBook} reviewModalBook={this.state.reviewModalBook} closeReviewModal={this.closeReviewModal} /> : false}
 
-        {this.state.searchedCharter ? <PostModal libraryCharter={this.state.searchedCharter} handlePostBook={this.handlePostBook} /> : false}
+        {this.state.searchedCharter ? <PostModal clearBooksModal={this.clearBooksModal} booksModal={this.state.booksModal} searchAPIBook={this.searchAPIBook} libraryCharter={this.state.searchedCharter} handlePostBook={this.handlePostBook} /> : false}
       </section>
     )
   }
