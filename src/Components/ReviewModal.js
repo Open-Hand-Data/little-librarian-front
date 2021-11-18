@@ -17,6 +17,10 @@ class ReviewModal extends Component {
     this.props.closeReviewModal();
   }
 
+  dataButton = () => {
+    console.log(this.props.reviewModalBook);
+  }
+
 
   render(){
     return (
@@ -31,14 +35,14 @@ class ReviewModal extends Component {
           <Modal.Title>Review for {this.props.reviewModalBook.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {this.props.reviewModalBook.review.length > 0 ? this.props.reviewModalBook.review.map(review => <p>{review}</p> ): false }
           <Form onSubmit={this.handleSubmit}>
             <Form.Group className="reviewModal" controlId="reviewText">
               <Form.Label>Leave A Review</Form.Label>
               <Form.Control as="textarea" rows={3} />
             </Form.Group>
-            <Button type="submit">Submit Riview</Button>
+            <Button type="submit">Submit Review</Button>
           </Form>
-          <Button onClick={this.handleClose}>Close</Button>
         </Modal.Body>
       </Modal>
     )

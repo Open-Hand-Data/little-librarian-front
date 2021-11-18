@@ -3,6 +3,8 @@ import { Component } from "react";
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
+import Container from 'react-bootstrap/Container'
+
 
 export default class BookPage extends Component {
   constructor(props) {
@@ -47,11 +49,11 @@ export default class BookPage extends Component {
 
   render() {
     return (
-      <>
+      <Container id="bookPage">
         <SearchBar handleClick={this.handleClick} handleChange={this.handleChange}/>
 
         {this.state.libraries ? <SearchResults libraryArr={this.state.libraries}/> : <h3>Book Not found</h3>}
-      </>
+      </Container>
     )
   }
 }

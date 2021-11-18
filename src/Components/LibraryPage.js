@@ -6,7 +6,8 @@ import ReviewModal from "./ReviewModal"
 import axios from "axios";
 import PostModal from "./PostModal";
 import { withAuth0 } from "@auth0/auth0-react";
-import { Row } from "react-bootstrap"
+import Row from "react-bootstrap/Row"
+import Col from 'react-bootstrap/Col'
 import Container from "react-bootstrap/Container";
 
 class LibraryPage extends Component {
@@ -73,9 +74,12 @@ class LibraryPage extends Component {
   }
 
   //updates the review on the book object
-  updateBook = async (review) => {
+  updateBook = async (newReview) => {
+    let bookReview = this.state.reviewModalBook.review;
+    let modReview = `${this.props.auth0.user.name}:${newReview}`;
+    bookReview.push(modReview);
     let book = this.state.reviewModalBook;
-    book.review = review;
+    book.review = bookReview;
     let url = `${process.env.REACT_APP_SERVER_URL}/books/review/${book._id}`;
     let config = await this.props.getConfig();
     console.log(url);
@@ -128,23 +132,29 @@ class LibraryPage extends Component {
     return (
       <section id="librarySection">
         <Container>
+
           <Form onSubmit={this.handleOnSubmit}>
-            <Form.Group className="LibrarySearch" controlId="CharterNum">
-              <Form.Label>Charter Number</Form.Label>
-              <Form.Control type="text" placeholder="Charter Number" />
-            </Form.Group>
-            <Button type="submit"> Search </Button>
+            <Row className='justify-content-md-center'>
+              <Col sm={5} className='my-1'>
+                <Form.Group className="LibrarySearch" controlId="CharterNum">
+                  <Form.Control type="text" placeholder="Charter Number" />
+                </Form.Group>
+              </Col>
+              <Col xs='auto' className='my-1'>
+                <Button type="submit"> Search </Button>
+              </Col>
+            </Row>
           </Form>
+
+          {this.state.searchedCharter ? <PostModal clearBooksModal={this.clearBooksModal} booksModal={this.state.booksModal} searchAPIBook={this.searchAPIBook} libraryCharter={this.state.searchedCharter} handlePostBook={this.handlePostBook} /> : false}
+
+          <Row className="justify-content-left">
+            {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults key={book._id} deleteBook={this.deleteBook} showReviewModal={this.showReviewModal} book={book} />) : false}
+          </Row>
+          {this.state.reviewModalBook.title ? <ReviewModal showReviewModal={this.state.showReviewModal} getBooks={this.getBooks} updateBook={this.updateBook} reviewModalBook={this.state.reviewModalBook} closeReviewModal={this.closeReviewModal} /> : false}
+
         </Container>
-
-        {this.state.searchedCharter ? <PostModal clearBooksModal={this.clearBooksModal} booksModal={this.state.booksModal} searchAPIBook={this.searchAPIBook} libraryCharter={this.state.searchedCharter} handlePostBook={this.handlePostBook} /> : false}
-
-        <Row>
-          {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults key={book._id} deleteBook={this.deleteBook} showReviewModal={this.showReviewModal} book={book} />) : false}
-        </Row>
-        {this.state.reviewModalBook ? <ReviewModal showReviewModal={this.state.showReviewModal} getBooks={this.getBooks} updateBook={this.updateBook} reviewModalBook={this.state.reviewModalBook} closeReviewModal={this.closeReviewModal} /> : false}
-
-      </section>
+      </section >
     )
   }
 }
