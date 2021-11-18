@@ -7,6 +7,7 @@ import axios from "axios";
 import PostModal from "./PostModal";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Row } from "react-bootstrap"
+import Container from "react-bootstrap/Container";
 
 class LibraryPage extends Component {
   constructor(props) {
@@ -126,19 +127,23 @@ class LibraryPage extends Component {
   render() {
     return (
       <section id="librarySection">
-        <Form onSubmit={this.handleOnSubmit}>
-          <Form.Group className="LibrarySearch" controlId="CharterNum">
-            <Form.Label>Charter Number</Form.Label>
-            <Form.Control type="text" placeholder="Charter Number" />
-          </Form.Group>
-          <Button type="submit"> Search </Button>
-        </Form>
+        <Container>
+          <Form onSubmit={this.handleOnSubmit}>
+            <Form.Group className="LibrarySearch" controlId="CharterNum">
+              <Form.Label>Charter Number</Form.Label>
+              <Form.Control type="text" placeholder="Charter Number" />
+            </Form.Group>
+            <Button type="submit"> Search </Button>
+          </Form>
+        </Container>
+
+        {this.state.searchedCharter ? <PostModal clearBooksModal={this.clearBooksModal} booksModal={this.state.booksModal} searchAPIBook={this.searchAPIBook} libraryCharter={this.state.searchedCharter} handlePostBook={this.handlePostBook} /> : false}
+
         <Row>
           {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults key={book._id} deleteBook={this.deleteBook} showReviewModal={this.showReviewModal} book={book} />) : false}
         </Row>
         {this.state.reviewModalBook ? <ReviewModal showReviewModal={this.state.showReviewModal} getBooks={this.getBooks} updateBook={this.updateBook} reviewModalBook={this.state.reviewModalBook} closeReviewModal={this.closeReviewModal} /> : false}
 
-        {this.state.searchedCharter ? <PostModal clearBooksModal={this.clearBooksModal} booksModal={this.state.booksModal} searchAPIBook={this.searchAPIBook} libraryCharter={this.state.searchedCharter} handlePostBook={this.handlePostBook} /> : false}
       </section>
     )
   }

@@ -1,11 +1,30 @@
 body {
-  background-color: #282c34;
-  color: #b8b8b8
+  background-color: black;
+  color: dimgray;
+}
+
+#titleContainer {
+  background-color: #FF6400;
+  border-radius: 10%;
+
 }
 
 #title {
-  background-color: #FF6400;
-  color: #b8b8b8;
+  font-family: 'Permanent Marker', cursive;
+  color: black;
+}
+
+a.nav-link{
+  font-family: 'Permanent Marker', cursive;
+  font-size: larger;
+
+}
+
+a.librarySearch {
+  color: #FF6400;
+  font-family: 'Permanent Marker', cursive;
+
+
 }
 
 .App {

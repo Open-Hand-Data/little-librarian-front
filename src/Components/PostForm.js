@@ -2,6 +2,7 @@ import React from 'react';
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import PostModalResults from './PostModalResults';
+import Container from 'react-bootstrap/Container'
 
 export default class PostForm extends React.Component {
 
@@ -22,7 +23,9 @@ export default class PostForm extends React.Component {
           </Form.Group>
           <Button variant="primary" type="submit">submit</Button>
         </Form>
+        <Container>
         {this.props.booksModal ? this.props.booksModal.map(book => <PostModalResults hideModal = {this.props.hideModal} book={book} handlePostBook={this.props.handlePostBook}/>) : false}
+        </Container>
       </>
     )
   }

@@ -1,0 +1,42 @@
+.card{
+  text-align: center;
+  width: 18rem;
+  margin: 0.5rem;
+  background: rgb(2,0,36);
+  background: linear-gradient(191deg, rgba(2,0,36,1) 0%, rgba(82,107,122,1) 35%, rgba(233,241,242,1) 100%);
+}
+
+.modalCard{
+  text-align: center;
+  width: 18rem;
+  margin: auto;
+  margin-top: 1rem;
+  background: rgb(2,0,36);
+  background: linear-gradient(191deg, rgba(2,0,36,1) 0%, rgba(82,107,122,1) 35%, rgba(233,241,242,1) 100%);
+}
+
+.cardImg{
+  padding: 0.2em;
+  margin:auto;
+  height:300px;
+  width: 90%;
+  object-fit: contain;
+}
+
+.cardText{
+  height: 150px;
+  overflow-y: scroll 
+}
+
+.cardText::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+.cardText::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.cardText::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
