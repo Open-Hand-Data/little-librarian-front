@@ -146,10 +146,12 @@ class LibraryPage extends Component {
             </Row>
           </Form>
 
+
+
           {this.state.searchedCharter ? <PostModal clearBooksModal={this.clearBooksModal} booksModal={this.state.booksModal} searchAPIBook={this.searchAPIBook} libraryCharter={this.state.searchedCharter} handlePostBook={this.handlePostBook} /> : false}
 
           <Row className="justify-content-left">
-            {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults key={book._id} deleteBook={this.deleteBook} showReviewModal={this.showReviewModal} book={book} />) : false}
+            {(this.state.books.length > 0) ? this.state.books.map(book => <LibrarySearchResults key={book._id} deleteBook={this.deleteBook} showReviewModal={this.showReviewModal} book={book} />) : <img src="/imgs/logopic.jpg" alt="free little library" />}
           </Row>
           {this.state.reviewModalBook.title ? <ReviewModal showReviewModal={this.state.showReviewModal} getBooks={this.getBooks} updateBook={this.updateBook} reviewModalBook={this.state.reviewModalBook} closeReviewModal={this.closeReviewModal} /> : false}
 
