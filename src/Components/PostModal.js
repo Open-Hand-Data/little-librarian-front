@@ -38,11 +38,6 @@ export default class PostModal extends React.Component {
             <PostForm booksModal = {this.props.booksModal} searchAPIBook ={this.props.searchAPIBook} libraryCharter={this.props.libraryCharter} handlePostBook={this.props.handlePostBook} hideModal={this.closeModal} />
           </Modal.Body>
 
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.closeModal}>
-              Close
-            </Button>
-          </Modal.Footer>
         </Modal>
       </>
     )

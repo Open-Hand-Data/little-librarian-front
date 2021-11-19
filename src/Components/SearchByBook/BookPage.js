@@ -3,6 +3,9 @@ import { Component } from "react";
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import '../../css/bookPage.css';
 
 export default class BookPage extends Component {
   constructor(props) {
@@ -47,11 +50,19 @@ export default class BookPage extends Component {
 
   render() {
     return (
-      <>
+      <Container id="bookPage">
         <SearchBar handleClick={this.handleClick} handleChange={this.handleChange}/>
 
-        {this.state.libraries ? <SearchResults libraryArr={this.state.libraries}/> : <h3>Book Not found</h3>}
-      </>
+        {this.state.libraries ?
+        <>
+          <h2>We found your book in these libraries!</h2>
+          <Row>
+            {this.state.libraries.map((data, idx) => <SearchResults data={data} idx={idx}/> )}
+          </Row>
+        </>
+
+          : <><h3>Book Not found</h3> <img src="/imgs/logopic.jpg" alt="free little library" /> </>}
+      </Container>
     )
   }
 }

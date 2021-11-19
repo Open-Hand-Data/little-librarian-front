@@ -10,14 +10,14 @@ export default class PostForm extends React.Component {
   //this submit will grab the value of the input feild and use it as the search term for the google book api
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.searchAPIBook(e.target.title.value)
+    this.props.searchAPIBook(e.target.titleModal.value)
   }
 
   render() {
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group className="mb-3" controlId="title">
+          <Form.Group className="mb-3" controlId="titleModal">
             <Form.Label>Title</Form.Label>
             <Form.Control type="name" placeholder="Enter book title" />
           </Form.Group>

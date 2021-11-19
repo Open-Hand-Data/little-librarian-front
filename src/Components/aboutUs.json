@@ -3,21 +3,21 @@
     {
       "name": "Steve Ngo",
       "bio": "I'm Steve and I'm a software engineer, based in Atlanta Ga. I'm a former branding designer and camera specialist. I enjoy the feeling of fixing tough bugs in my code. The goals I have for myself include learning how to code more advanced programs while creating an appealing UX/UI. I enjoy working with my hands to fixing broken things like antique music boxes. Fun fact: my favorite book is Alice in Wonderland",
-      "img": "/imgs/steve.jpeg",
+      "img": "/imgs/steve.jpg",
       "linkedin": "https://www.linkedin.com/in/alsosteve/",
       "github": "https://github.com/alsosteve"
     },
     {
       "name": "Joe Streifel",
       "bio": "My name is Joseph and I'm a full stack software engineer. I'm a Marine Corps veteran with a background in test equipment calibration. I'm passionate about learning and teaching, and strive to provide high quality work products in any setting. My fun fact is that I've worked with electricity up to 20 kV in my past while simulating lightning impulses!",
-      "img": "/imgs/joe.jpg",
+      "img": "/imgs/Joe.jpeg",
       "linkedin": "https://www.linkedin.com/in/josephjstreifel/",
       "github": "https://github.com/jstreifel-33"
     },
     {
       "name": "Samuel Panek",
       "bio": "bla bla bla blab bla blab blab blablab blablalala",
-      "img": "/imgs/steve.jpeg",
+      "img": "/imgs/sam.jpeg",
       "linkedin": "https://www.linkedin.com/in/samuel-panek/",
       "github": "https://github.com/spamuelranek"
     },

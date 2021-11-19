@@ -9,7 +9,7 @@ export default class SearchBar extends Component {
     return (
       <Form>
           <Row className='justify-content-md-center'>
-            <Col sm={3} className='my-1'>
+            <Col sm={5} className='my-1'>
               <Form.Label htmlFor='inlineFormInputName' visuallyHidden>
                 Please Enter Book Name
               </Form.Label>
@@ -18,8 +18,8 @@ export default class SearchBar extends Component {
                 placeholder='Ex: Through the Looking Glass'
               />
             </Col>
-            <Col xs='auto' className='my-1'>
-              <Button onClick={this.props.handleClick} variant="primary">Search!</Button>{' '}
+            <Col>
+              <Button onClick={this.props.handleClick} variant="primary">Search!</Button>
             </Col>
           </Row>
         </Form>

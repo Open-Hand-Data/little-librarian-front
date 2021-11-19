@@ -29,7 +29,7 @@ export default class LibrarySearchResults extends Component {
 
   render() {
     return (
-      
+      <Col>
         <Card key={this.props.book._id} className={result.card}>
           {this.props.book.thumbnail ? <Card.Img className ={result.cardImg} src={this.props.book.thumbnail} /> : false}
           <Card.Title>{this.props.book.title}</Card.Title>
@@ -46,6 +46,7 @@ export default class LibrarySearchResults extends Component {
             </Row>
           </Card.Footer>
         </Card>
+      </Col>
       
 
     )
