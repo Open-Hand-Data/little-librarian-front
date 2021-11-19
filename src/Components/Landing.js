@@ -14,4 +14,5 @@ class Landing extends Component {
   }
 }
 
+
 export default withAuth0(Landing);
