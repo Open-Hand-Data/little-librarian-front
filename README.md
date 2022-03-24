@@ -1,70 +1,221 @@
-# Getting Started with Create React App
+# **The Little Librarian**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **The Little Librarian URL**
 
-## Available Scripts
+[Visit The Little Librarian](https://little-librarian.netlify.app/)
 
-In the project directory, you can run:
+## **The vision**
 
-### `npm start`
+![Little Librarian App](./assets/LittleLibrarian.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- The vision of the product is to catalog and display the books available at **Little Free Library** locations around all communities where they are located.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## **The Problem Domain**
 
-### `npm test`
+![Little Free Library](./assets/freelibrary-e1570547483566.jpg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **The Little Librarian** app increases awareness and access to these community resources by allowing users to see what books they can expect in a **Little Free Library** prior to travelling to the library's physical location.
 
-### `npm run build`
+## **The Importance**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![LFL](./assets/LittleFreeLibrary.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- These valuable community-owned and operated resources are available nationwide and making it easier for them to be utilized will benefit all communities.
+- Little Free Libraries can currently be found only by using `littlefreelibrary.org`; using our app will not only make these resources easier to locate but will provide a list of the titles each library has on hand.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**User Stories:**
+[Trello Board](https://trello.com/b/0ab5BQlD/open-hand-data)
 
-### `npm run eject`
+## **Software Requirements**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### **Project Scope (In/Out)**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### **In Scope**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- allow you to search for a book in the entire library system
+- show you what is in a specific library
+- Allow you to delete a book in a library
+- Allow you to add a note to the book
+- Allow you to add a book to a library
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### **Out of Scope**
 
-## Learn More
+- Not going to show a map of locations
+- Not going to add library locations
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Minimum Viable Product**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **What will your MVP functionality be?**
+  - A user will be able add or remove a book from a library
+  - A user will be able to search by a book or by library
+  - A user will be able to leave a review on a book
 
-### Code Splitting
+### **Stretch Goals**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **What are your stretch goals?**
+  - Push in our seed data from `littlefreelibrary.org`  
+  - Allow for the creation of a new library.
+  - Allow for the User the ability to read book list/inventory of books.
+- **What stretch goals are you going to aim for?**
+  - Creation of a new library.
 
-### Analyzing the Bundle Size
+### **Functional Requirements**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- *A user will be able to...*
+  - Add or remove a book from a library
+  - Search by a book or by library
+  - Leave a review for a book
 
-### Making a Progressive Web App
+### **Data Flow**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Add Update Books](./assets/add-flow.jpg)
+![Take/Delete Books](./assets/takeBook-Flow.jpg)
+![Review Books](./assets/note-flow.jpg)
 
-### Advanced Configuration
+### **Non-Functional Requirements**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### **Security**
 
-### Deployment
+- Our app will use Auth0 to make sure we have authorized users
+- This will allow us to track and personalize to our users
+- Our backend will validate requests to make sure it is coming from our front end
+- Managing the uses of our api and databases so only our users are able to access those resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### **Database**
 
-### `npm run build` fails to minify
+- Each item belongs to a single location
+- The two databases will be a Library Database and a Book Database
+  - There will be a identifier in the Library that will have an associated data point in the Book
+- Each book is associated with only one library
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### **DB Schemas**
+
+```js
+Library = {
+  geolocation : {
+    latitude: Number, 
+    longitude: Number
+    },
+  libraryName : String,
+  charter : String
+}
+
+Book = {
+  libraryCharterNum : String,
+  title : String,
+  author : String,
+  description: String,
+  thumbnail : String, //url
+  note: String //optional
+}
+```
+
+## **Team Open-Hand Data**
+
+![OHD](./assets/OHD.png)
+
+### **Our Team Cooperation Plan**
+
+### **Team key strengths?**
+
+- **Steve** is familiar with the material and has already presented a 301 project. Strength in css
+- **Joseph** has an aptitude for reading documentation and strong in react
+- **Joey** is strong in design and layout. Strength in css
+- **Sam** efficient and focused on task at hand
+
+### **How are we going to utilize these street?**
+
+- **Steve** and **Joey** will spearhead the design, layout and styling of the app.
+- **Sam** and **Joseph** will be our power houses of new code design.
+
+### **What professional competencies do you want work on?**
+
+1. **Sam** wants to work as a team manager.
+2. **Joey** wants to build his overall confidence and technical abilities.
+3. **Joseph** endeavors to work on better collaboration skills.
+4. **Steve** wants to strengthen his planning and time management as well as subject knowledge.
+
+### **Our Daily Work Schedule**
+
+- 9:00am to 6:00pm 12pm-2pm lunch designed but open to interpretation
+- Morning standup to go over what is planned
+- Afternoon will be bringing all the code together and planning for tomorrow
+
+### **Conflict Plan**
+
+#### **Conflict Resolution**
+
+- One-on-one
+- One and another group member
+- Full group discussion
+- Elevate as needed.
+
+### **Communication Plan**
+
+#### **Availability**
+
+- **Joey** 10pm cutoff
+- **Joseph** 10pm
+- **Steve** communication always but delayed after hours
+- **Sam** 10pm
+
+#### **Communication Platforms**
+
+- Slack
+- Remo
+- Zoom/Discord
+
+#### **Breaks an off hours**
+
+- As needed but will have planned lunch
+- If we start to fall behind?
+  - Reevaluate what is MVP for us
+- Communication on off hours
+  - Slack
+
+### **Making Sure to Hear All Voices**
+
+- Everyone will be sharing at stand up and stand down
+- Frame responses with mutual respect.
+
+### **Diversity Equity & Inclusion Plan**
+
+- **Sam** is going to make sure he already assumes the best intentions in others.
+- **Joey** wants to check his bias and assumptions.
+- **Steve** wants to stay open to new ideas.
+- **Joseph** wants to find route cause and understanding.
+
+## **Work Plan**
+
+### **Tools for collaboration and workflow**
+  
+- We will be creating a task list to manage features and daily tasks via our team Trello board.
+- Mob programming and pair-programming will occur on LiveShare on VS code.
+
+### **Git Process**
+  
+- Frontend and backend will live on the GitHub.
+- Both repositories will be housed in our team organization.
+- All Work will be completed on individual branches.
+- Completed work will be pushed to staging and tested prior to merging.
+- Otherwise work will be pushed as necessary.
+
+### **PR Processes**
+  
+- Two reviewer approvals will be required to merge into main.
+- One reviewer required for staging merges from individual branches.
+- Merging will occur once a day or as necessary according to the team's approval.
+
+### **Credit and Co-Conspirators**
+
+- This amazing final project was thoughtfully created and masterfully crafted by the master-minds of **Samuel Panek**, **Joseph Streifel**, **Joey Hernandez**, and **Steve Ngo**!
+
+### **Contact the Team**
+
+[Follow Sam on LinkedIn](https://www.linkedin.com/in/samuel-panek/)
+
+[Follow Joseph on LinkedIn](https://www.linkedin.com/in/josephjstreifel/)
+
+[Follow Joey on LinkedIn](https://www.linkedin.com/in/jmhernandez2six/)
+
+[Follow Steve on LinkedIn](https://www.linkedin.com/in/alsosteve/)
