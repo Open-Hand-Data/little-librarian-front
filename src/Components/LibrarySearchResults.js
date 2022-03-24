@@ -1,12 +1,15 @@
 import { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import result from "./results.module.css";
 
-export default class LibrarySearchResults extends Component{
-  constructor(props){
+export default class LibrarySearchResults extends Component {
+  constructor(props) {
     super(props);
     this.state = {
-      searchTerm:''
+      searchTerm: ''
     }
   }
 
@@ -24,16 +27,27 @@ export default class LibrarySearchResults extends Component{
 
 
 
-  render(){
+  render() {
     return (
-      <Card key={this.props.book._id} style={{width: '18rem'}}>
-        {this.props.book.thumbnail ? <Card.Img variant="top" src={this.props.book.thumbnail} /> : false }
-        <Card.Title>{this.props.book.title}</Card.Title>
-        <Card.Text>{this.props.book.authors}</Card.Text>
-        <Card.Text>{this.props.book.description}</Card.Text>
-        <Button onClick = {this.deleteBook}>Borrow Book</Button>
-        <Button onClick = {this.leaveReviewBook}>Review Book</Button>
-      </Card>
+      <Col>
+        <Card key={this.props.book._id} className={result.card}>
+          {this.props.book.thumbnail ? <Card.Img className ={result.cardImg} src={this.props.book.thumbnail} /> : false}
+          <Card.Title>{this.props.book.title}</Card.Title>
+          <Card.Subtitle>{this.props.book.authors}</Card.Subtitle>
+          <Card.Text className={result.cardText}><strong>Description: </strong>{this.props.book.description}</Card.Text>
+          <Card.Footer>
+            <Row >
+              <Col>
+              <Button onClick={this.deleteBook}>Borrow</Button>
+              </Col>
+              <Col>
+              <Button onClick={this.leaveReviewBook}>Review</Button>
+              </Col>
+            </Row>
+          </Card.Footer>
+        </Card>
+      </Col>
+      
 
     )
   }

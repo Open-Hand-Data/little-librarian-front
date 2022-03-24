@@ -1,0 +1,17 @@
+#Footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(black 33%, black 66%, #FF6400 66%);
+}
+
+#foot {
+  font-size: 15px;
+  background-color: #011DF5;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 10px;
+}

@@ -1,13 +1,13 @@
 import {Component} from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import '../css/Footer.css';
 
 class Footer extends Component {
   render(){
     return(
-      <footer>
-        <h3>THIS IS WHERE WE ARE PUTTING CONTENT ON THE FOOTER. THIS IS AN H3</h3>
-        <p>THIS IS A P TAG</p>
-        <p>© by OpenHand Data</p>
-      </footer>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" id="Footer">
+        <Navbar.Brand id="foot">Little Librarian © by OpenHand Data </Navbar.Brand>
+      </Navbar>
     )
   }
 }

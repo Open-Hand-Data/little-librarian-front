@@ -1,3 +1,12 @@
+body {
+  background-color: black;
+  /* color: rgb(255, 255, 255); */
+  color: rgb(61, 61, 61);
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +23,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #FF6400;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
